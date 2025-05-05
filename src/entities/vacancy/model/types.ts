@@ -9,8 +9,8 @@ export type Vacancy = {
   city: string
   location: VacancyLocation
   salary: {
-    min: number
-    max: number
+    min: number | null
+    max: number | null
     period: VacancySalaryPeriod
   }
   requirements: {

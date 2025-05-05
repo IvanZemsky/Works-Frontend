@@ -17,6 +17,7 @@ import RootFooter from './root-footer.vue'
 .layout {
   display: grid;
   grid-template-rows: auto 1fr;
+  gap: 2rem;
   width: 100%;
   min-height: 100vh;
 }
