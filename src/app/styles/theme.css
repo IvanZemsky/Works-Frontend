@@ -1,3 +1,20 @@
-.ui-wrapper{
-   max-width: 1416px;
+:root {
+  --secondary-main: #000;
+}
+
+html {
+  font-family: 'Montserrat';
+}
+
+
+a, button, input, textarea{
+   font-family: 'Montserrat';
+}
+
+a:visited{
+  color: inherit;
+}
+
+.ui-wrapper {
+  max-width: 1416px;
 }

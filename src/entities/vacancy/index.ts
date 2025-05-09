@@ -5,4 +5,5 @@ export type {
   VacancySalaryPeriod,
   VacancyStatus,
   VacancyExperienceType,
+  VacancyExperience,
 } from './model/types'

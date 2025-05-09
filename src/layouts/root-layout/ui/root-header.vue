@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import NavLink from '@/shared/ui/nav-link.vue'
 import WLogo from '@/shared/ui/w-logo.vue'
+import { MessageOutlined } from '@vicons/antd'
 import { UiWrapper, UiSpacing, UiButton } from 'works-ui'
 </script>
 
 <template>
   <header class="header">
     <ui-wrapper>
-      <ui-spacing class="content" align="center" justify="space-between" gap="md">
+      <ui-spacing align="center" justify="space-between" gap="md" fill>
         <nav class="navigation">
           <ui-spacing align="center" gap="md">
             <WLogo />
@@ -20,7 +21,17 @@ import { UiWrapper, UiSpacing, UiButton } from 'works-ui'
         </nav>
 
         <ui-spacing align="center" gap="md">
-          <ui-button class="createResumeLink" as="router-link" to="/" size="sm" color="secondary">
+          <ui-button class="messageBtn" size="md" color="secondary" variant="ghost">
+            <message-outlined />
+          </ui-button>
+          <ui-button
+            class="createResumeLink"
+            as="router-link"
+            to="/"
+            size="md"
+            color="secondary"
+            variant="light"
+          >
             Создать резюме
           </ui-button>
         </ui-spacing>
@@ -31,13 +42,20 @@ import { UiWrapper, UiSpacing, UiButton } from 'works-ui'
 
 <style scoped>
 .header {
-  padding: 15px 0;
+  padding: 0.7rem 0;
   background-color: var(--secondary-main);
 }
-.content {
-  width: 100%;
-}
+
 .ui-button.createResumeLink {
   background-color: #343c43;
+  font-size: 0.8rem;
+  color: var(--secondary-contrast);
+  border-color: #343c43;
 }
+
+.ui-button.createResumeLink:hover {
+  background-color: #47525b;
+  border-color: #47525b;
+}
+
 </style>
