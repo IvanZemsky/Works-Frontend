@@ -1,0 +1,1 @@
+export {vacancyFeatures} from "./lib"

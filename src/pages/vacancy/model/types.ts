@@ -1,6 +1,5 @@
 import type { Vacancy } from "@/entities/vacancy"
 
-export type VacancyCardProps = {
+export type VacancyDescCardProps = {
    data: Vacancy
-   showDesc?: boolean
 }

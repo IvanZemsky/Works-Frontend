@@ -4,6 +4,7 @@
 
 html {
   font-family: 'Montserrat';
+  color: var(--secondary-main);
 }
 
 
@@ -11,6 +12,7 @@ a, button, input, textarea{
    font-family: 'Montserrat';
 }
 
+a,
 a:visited{
   color: inherit;
 }

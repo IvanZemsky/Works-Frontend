@@ -3,7 +3,7 @@ import { i18n } from '@/shared/i18n'
 
 const { t } = i18n.global
 
-export function getSalaryString(salary: Vacancy['salary']) {
+function getSalaryString(salary: Vacancy['salary']) {
   if (salary.min && salary.max) {
     return `${salary.min} – ${salary.max}₽ ${t('per')} ${t(salary.period)}`
   } else if (!salary.min) {
@@ -15,7 +15,7 @@ export function getSalaryString(salary: Vacancy['salary']) {
   }
 }
 
-export function getExperienceString(data: VacancyExperience) {
+function getExperienceString(data: VacancyExperience) {
   if (data.min && data.max) {
     return `${data.min}-${data.max} ${t('years')}`
   } else if (!data.min) {
@@ -25,4 +25,9 @@ export function getExperienceString(data: VacancyExperience) {
   } else {
     return 'Без опыта'
   }
+}
+
+export const vacancyFeatures = {
+  getSalaryString,
+  getExperienceString
 }
