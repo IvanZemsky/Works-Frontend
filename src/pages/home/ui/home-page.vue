@@ -25,17 +25,23 @@ import { vacancy } from "@/entities/vacancy/mock"
 
             <ui-spacing vertical align="stretch">
                <ui-spacing gap="sm">
-                  <ui-button color="secondary" size="sm">Для вас</ui-button>
-                  <ui-button color="secondary" variant="light" hover="light" size="sm">
+                  <ui-button rounded color="secondary" size="sm">Для вас</ui-button>
+                  <ui-button
+                     rounded
+                     color="secondary"
+                     variant="light"
+                     hover="light"
+                     size="sm"
+                  >
                      Подработка
                   </ui-button>
-                  <ui-button color="secondary" variant="light" size="sm">
+                  <ui-button rounded color="secondary" variant="light" size="sm">
                      От 16 лет
                   </ui-button>
-                  <ui-button color="secondary" variant="light" size="sm">
+                  <ui-button rounded color="secondary" variant="light" size="sm">
                      Удалённая работа
                   </ui-button>
-                  <ui-button color="secondary" variant="light" size="sm">
+                  <ui-button rounded color="secondary" variant="light" size="sm">
                      Стажировка
                   </ui-button>
                </ui-spacing>
@@ -43,27 +49,27 @@ import { vacancy } from "@/entities/vacancy/mock"
                <ui-spacing vertical gap="sm">
                   <VacancyCard
                      :data="vacancy"
-                     :link="`vacancy/${vacancy.id}`"
+                     :link="`/vacancies/${vacancy.id}`"
                      show-desc
                   />
                   <VacancyCard
                      :data="vacancy"
-                     :link="`vacancy/${vacancy.id}`"
+                     :link="`/vacancies/${vacancy.id}`"
                      show-desc
                   />
                   <VacancyCard
                      :data="vacancy"
-                     :link="`vacancy/${vacancy.id}`"
+                     :link="`/vacancies/${vacancy.id}`"
                      show-desc
                   />
                   <VacancyCard
                      :data="vacancy"
-                     :link="`vacancy/${vacancy.id}`"
+                     :link="`/vacancies/${vacancy.id}`"
                      show-desc
                   />
                </ui-spacing>
 
-               <ui-button class="showMoreBtn" variant="light" size="lg">
+               <ui-button class="showMoreBtn" variant="light" weight="500" size="lg">
                   Посмотреть ещё
                </ui-button>
             </ui-spacing>

@@ -81,10 +81,10 @@ withDefaults(defineProps<VacancyCardProps>(), {
             </p>
 
             <ui-spacing gap="sm">
-               <ui-button class="applyBtn" size="sm">
+               <ui-button class="apply-btn" size="sm" weight="500">
                   {{ capitalize($t("apply")) }}
                </ui-button>
-               <ui-button class="contactsBtn" size="sm" variant="light">
+               <ui-button class="contacts-btn" size="sm" weight="500" variant="light">
                   {{ capitalize($t("contacts")) }}
                </ui-button>
             </ui-spacing>
@@ -114,11 +114,11 @@ withDefaults(defineProps<VacancyCardProps>(), {
    height: 21px;
 }
 .action-btn {
-   width: 36px;
+   width: 1.6rem;
    color: var(--secondary-light);
 }
-.applyBtn,
-.contactsBtn {
+.apply-btn,
+.contacts-btn {
    padding: 14px;
 }
 </style>

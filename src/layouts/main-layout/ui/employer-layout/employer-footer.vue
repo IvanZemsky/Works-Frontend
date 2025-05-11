@@ -3,10 +3,11 @@
 </script>
 
 <template>
-   <div>
-
-   </div>
+   <footer>
+      footer
+   </footer>
 </template>
+
 
 <style scoped>
 

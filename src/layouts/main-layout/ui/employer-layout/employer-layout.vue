@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import RootHeader from './root-header.vue'
-import RootFooter from './root-footer.vue'
+import EmployerHeader from './employer-header.vue'
+import EmployerFooter from './employer-footer.vue'
 </script>
 
 <template>
   <div class="layout">
-    <RootHeader />
+    <EmployerHeader />
     <main>
       <router-view></router-view>
     </main>
-    <RootFooter />
+    <EmployerFooter />
   </div>
 </template>
 

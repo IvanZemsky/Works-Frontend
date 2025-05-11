@@ -4,7 +4,7 @@ import { capitalize } from '@/shared/lib'
 </script>
 
 <template>
-  <ui-wrapper>
+  <ui-wrapper class="wrapper">
     <ui-card class="form-card">
       <form>
         <ui-spacing vertical>
@@ -25,6 +25,9 @@ import { capitalize } from '@/shared/lib'
 </template>
 
 <style scoped>
+.wrapper{
+  min-height: 100vh;
+}
 .form-card {
   align-self: center;
   max-width: 500px;

@@ -1,11 +1,11 @@
-import type { Company } from "@/entities/company"
+import type { Employer } from "@/entities/employer"
 
 export type Vacancy = {
    id: VacancyId
    status: VacancyStatus
    title: string
    description: string
-   company: Company
+   company: Employer
       location: VacancyLocation
    date: Date
    schedule: string
