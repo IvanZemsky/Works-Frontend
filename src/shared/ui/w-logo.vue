@@ -14,7 +14,7 @@
   border-radius: 50%;
   background-color: red;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: white;
 }
 </style>

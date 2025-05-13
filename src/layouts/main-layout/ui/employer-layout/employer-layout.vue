@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import EmployerHeader from './employer-header.vue'
-import EmployerFooter from './employer-footer.vue'
+import MainFooter from '../main-footer.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import EmployerFooter from './employer-footer.vue'
     <main>
       <router-view></router-view>
     </main>
-    <EmployerFooter />
+    <MainFooter />
   </div>
 </template>
 

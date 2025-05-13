@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import MainFooter from "../main-footer.vue";
 import ApplicantHeader from './applicant-header.vue'
-import ApplicantFooter from './applicant-footer.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import ApplicantFooter from './applicant-footer.vue'
     <main>
       <router-view></router-view>
     </main>
-    <ApplicantFooter />
+    <MainFooter />
   </div>
 </template>
 
