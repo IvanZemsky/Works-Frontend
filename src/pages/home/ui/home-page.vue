@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { UiButton, UiWrapper, UiSpacing, UiInput } from "works-ui"
 import { SearchOutlined } from "@vicons/antd"
 import InteractionCard from "./interaction-card.vue"
 import LiftResumeCard from "./lift-resume-card.vue"
-import VacancyCard from "@/features/vacancy/vacancy-card.vue"
+import VacancyCard from "@/features/vacancy/ui/vacancy-card.vue"
 import { vacancy } from "@/entities/vacancy/mock"
 </script>
 
@@ -17,7 +16,7 @@ import { vacancy } from "@/entities/vacancy/mock"
             <ui-button class="searchBtn">Найти</ui-button>
          </ui-spacing>
 
-         <ui-spacing class="columns" gap="md">
+         <ui-spacing class="columns" gap="lg">
             <ui-spacing class="actions-column" vertical>
                <InteractionCard class="action-card" />
                <LiftResumeCard class="action-card" />

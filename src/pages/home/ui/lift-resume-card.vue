@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { UiCard, UiSpacing } from 'works-ui'
+
 </script>
 
 <template>

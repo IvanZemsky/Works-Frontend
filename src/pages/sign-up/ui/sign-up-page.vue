@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { UiWrapper, UiCard, UiSpacing, UiInput, UiButton, UiLink } from 'works-ui'
 import {capitalize} from "@/shared/lib";
 </script>
 

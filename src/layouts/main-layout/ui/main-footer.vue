@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { LanguageIcon } from "@/shared/ui/icons"
 import { GithubFilled } from "@vicons/antd"
-import { UiWrapper, UiLink, UiSpacing, UiButton } from "works-ui"
 
 const year = new Date().getFullYear()
 </script>

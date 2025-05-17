@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import WLogo from '@/shared/ui/w-logo.vue'
-import { UiWrapper, UiSpacing,} from 'works-ui'
 </script>
 
 <template>

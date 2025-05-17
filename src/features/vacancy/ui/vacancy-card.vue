@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { UiCard, UiSpacing, UiLink, UiButton, UiChip, UiTooltip } from "works-ui"
-import { vacancyFeatures } from "./lib"
+import { vacancyFeatures } from "../lib"
 import { EyeOutlined, StarFilled, HeartOutlined } from "@vicons/antd"
 import { capitalize } from "vue"
 import type { Vacancy } from "@/entities/vacancy"
@@ -67,11 +66,11 @@ withDefaults(defineProps<VacancyCardProps>(), {
                   size="sm"
                   weight="500"
                >
-                  {{ data.company.name }}
+                  {{ data.employer.name }}
                </ui-link>
                <ui-spacing class="rating" align="center" :gap="[3, 3]">
                   <star-filled />
-                  <span>{{ data.company.rating }}</span>
+                  <span>{{ data.employer.rating }}</span>
                </ui-spacing>
                <p class="location">{{ data.address.city }}</p>
             </ui-spacing>

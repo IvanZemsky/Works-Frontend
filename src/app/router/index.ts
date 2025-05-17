@@ -60,6 +60,18 @@ const router = createRouter({
          ],
       },
       {
+         path: "/employers/:id",
+         name: "employer",
+         component: MainLayout,
+         redirect: "/employers/:id",
+         children: [
+            {
+               path: "/employers/:id",
+               component: () => import("@/pages/employer/ui/employer-page.vue"),
+            },
+         ],
+      },
+      {
          path: "/vacancies",
          name: "vacancies",
          redirect: "/vacancies",
@@ -82,7 +94,7 @@ const router = createRouter({
 router.beforeEach((to) => {
    const defaultTitle = "Works"
 
-   if (to.meta.title) {
+   if (to.meta?.title) {
       document.title = String(to.meta.title)
    } else {
       document.title = defaultTitle

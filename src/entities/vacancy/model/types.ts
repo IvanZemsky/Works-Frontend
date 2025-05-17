@@ -5,8 +5,8 @@ export type Vacancy = {
    status: VacancyStatus
    title: string
    description: string
-   company: Employer
-      location: VacancyLocation
+   employer: Employer
+   location: VacancyLocation
    date: Date
    schedule: string
    hoursPerDay: number
@@ -17,8 +17,8 @@ export type Vacancy = {
       building?: string
    }
    salary: {
-      min: number | null
-      max: number | null
+      min?: number
+      max?: number
       period: VacancySalaryPeriod
    }
    requirements: {
@@ -39,7 +39,7 @@ export type VacancySalaryPeriod = "year" | "month"
 export type VacancyExperience = {
    min: number
    max: VacancyMaxExperience<VacancyExperience["min"]>
-   type: VacancyExperienceType | null
+   type?: VacancyExperienceType
 }
 
 type VacancyMaxExperience<T> = T extends number ? number | null : T

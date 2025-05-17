@@ -6,12 +6,14 @@ import "./styles/fonts.css"
 import './styles/theme.css'
 import App from './app.vue'
 import router from './router'
+import WorksUi from "works-ui"
 import { i18n } from "@/shared/i18n"
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+app.use(WorksUi)
 app.use(i18n)
 
 app.mount('#app')

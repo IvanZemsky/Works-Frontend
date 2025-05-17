@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue'
 import { useRoute } from 'vue-router'
-import { UiLink, type UiLinkProps } from 'works-ui'
+import { type UiLinkProps } from 'works-ui'
 
 const props = withDefaults(defineProps<UiLinkProps>(), {})
 

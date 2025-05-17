@@ -6,12 +6,14 @@ export const vacancy: Vacancy = {
    description:
       "Разработка торгового терминала, торгового графика. Реализовывать realtime обновления, используя websocket api. Разрабатывать API для мобильного и веб клиента..",
    status: "open",
-
-   company: {
+   employer: {
       id: "1",
       name: "Google",
       description: "Google",
       rating: 4.9,
+      type: "LLC",
+      website: "http://google.com",
+      location: "Moscow"
    },
    address: {
       city: "Москва",

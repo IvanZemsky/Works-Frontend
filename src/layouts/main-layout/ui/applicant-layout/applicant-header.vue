@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import NavLink from "@/shared/ui/nav-link.vue"
-import WLogo from "@/shared/ui/w-logo.vue"
-import { MessageOutlined, HeartOutlined } from "@vicons/antd"
+import { HeartOutlined } from "@vicons/antd"
 import { ProfileIcon, NavigationIcon } from "@/shared/ui/icons"
-import IconButton from "../icon-btn.vue"
-import { UiWrapper, UiSpacing, UiButton } from "works-ui"
+import {IconBtn, WLogo, NavLink} from "@/shared/ui"
+import { ToggleChatBtn, ChatWindow } from "@/features/chat"
 </script>
 
 <template>
@@ -33,14 +31,16 @@ import { UiWrapper, UiSpacing, UiButton } from "works-ui"
                      Воронеж
                   </ui-spacing>
                </button>
-               <icon-button class="action-btn">
-                  <message-outlined />
-               </icon-button>
-               <icon-button class="action-btn">
+
+               <ToggleChatBtn class="chat-btn">
+                  <ChatWindow/>
+               </ToggleChatBtn>
+               
+               <icon-btn class="action-btn">
                   <heart-outlined />
-               </icon-button>
+               </icon-btn>
                <ui-button
-                  class="createResumeLink"
+                  class="create-resume-link"
                   as="router-link"
                   to="/"
                   size="md"
@@ -49,9 +49,9 @@ import { UiWrapper, UiSpacing, UiButton } from "works-ui"
                >
                   Создать резюме
                </ui-button>
-               <icon-button class="action-btn">
+               <icon-btn class="action-btn">
                   <profile-icon />
-               </icon-button>
+               </icon-btn>
             </ui-spacing>
          </ui-spacing>
       </ui-wrapper>
@@ -67,20 +67,31 @@ import { UiWrapper, UiSpacing, UiButton } from "works-ui"
    background-color: var(--secondary-main);
 }
 
-.ui-button.createResumeLink {
+.ui-button.create-resume-link {
    background-color: #343c43;
    font-size: 0.8rem;
    color: var(--secondary-contrast);
    border-color: #343c43;
 }
 
-.ui-button.createResumeLink:hover {
+.ui-button.create-resume-link:hover {
    background-color: #47525b;
    border-color: #47525b;
 }
 .action-btn {
    width: 30px;
 }
+
+.chat-btn :deep(.toggle-btn) {
+   width: 30px;
+}
+
+.chat-btn :deep(.chat-window) {
+   max-width: 500px;
+   width: 100%;
+   height: 400px;
+}
+
 .location-btn {
    background: none;
    font-size: 0.9rem;

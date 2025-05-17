@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import VacancyDescCard from "./vacancy-desc-card.vue"
-import { UiWrapper, UiSpacing, UiButton } from "works-ui"
 import { vacancy } from "@/entities/vacancy/mock"
 import { capitalize } from "vue"
 import { VacancySmallCard } from "@/features/vacancy"

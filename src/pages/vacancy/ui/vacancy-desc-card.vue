@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { UiCard, UiSpacing, UiButton, UiTooltip } from "works-ui"
 import type { VacancyDescCardProps } from "../model/types"
 import { vacancyFeatures } from "@/features/vacancy"
 import { capitalize } from "@/shared/lib"
@@ -21,7 +20,7 @@ defineProps<VacancyDescCardProps>()
             </p>
             <p>График: {{ data.schedule }}</p>
             <p>Рабочие часы: {{ data.hoursPerDay }}</p>
-            <p>Формат работы: {{ data.location }}</p>
+            <p>Формат работы: {{ $t(data.location) }}</p>
          </ui-spacing>
 
          <ui-spacing class="actions" align="center" gap="sm" fill>

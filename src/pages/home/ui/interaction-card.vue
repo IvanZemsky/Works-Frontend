@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { EnvelopeIcon } from '@/shared/ui/icons'
-import { UiCard, UiLink, UiSpacing } from 'works-ui'
 </script>
 
 <template>

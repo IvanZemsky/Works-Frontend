@@ -1,5 +1,5 @@
 <template>
-   <button class="icon-button">
+   <button :class="['icon-button', $attrs.class]">
       <slot />
    </button>
 </template>
