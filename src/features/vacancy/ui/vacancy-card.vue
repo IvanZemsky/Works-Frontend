@@ -4,6 +4,7 @@ import { EyeOutlined, StarFilled, HeartOutlined } from "@vicons/antd"
 import { capitalize } from "vue"
 import type { Vacancy } from "@/entities/vacancy"
 import type { RouteLocationRaw } from "vue-router"
+import { IconBtn } from "@/shared/ui"
 
 type VacancyCardProps = {
    data: Vacancy
@@ -22,24 +23,22 @@ withDefaults(defineProps<VacancyCardProps>(), {
          <ui-spacing vertical>
             <ui-spacing fill vertical gap="sm">
                <ui-spacing fill align="center" justify="space-between">
-                  <ui-link
-                     :to="link"
-                     class="title"
-                     weight="600"
-                     color="secondary"
-                     hover="fade-light"
-                  >
+                  <p class="title">
                      {{ data.title }}
-                  </ui-link>
-                  <ui-spacing align="center">
+                  </p>
+                  <ui-spacing class="actions" align="center">
                      <ui-tooltip :text="capitalize($t('hide'))" position="top">
-                        <eye-outlined class="action-btn" />
+                        <icon-btn class="action-btn" @click.prevent="">
+                           <eye-outlined />
+                        </icon-btn>
                      </ui-tooltip>
                      <ui-tooltip
                         :text="capitalize($t('addTo')) + ' ' + $t('favorites')"
                         position="top"
                      >
-                        <heart-outlined class="action-btn" />
+                        <icon-btn class="action-btn" @click.prevent="">
+                           <heart-outlined />
+                        </icon-btn>
                      </ui-tooltip>
                   </ui-spacing>
                </ui-spacing>
@@ -60,7 +59,8 @@ withDefaults(defineProps<VacancyCardProps>(), {
 
             <ui-spacing vertical :gap="[6, 6]">
                <ui-link
-                  to="#"
+                  @click.prevent=""
+                  :to="`/employers/${data.employer.id}`"
                   color="secondary"
                   hover="fade-light"
                   size="sm"
@@ -80,10 +80,16 @@ withDefaults(defineProps<VacancyCardProps>(), {
             </p>
 
             <ui-spacing gap="sm">
-               <ui-button class="apply-btn" size="sm" weight="500">
+               <ui-button class="apply-btn" @click.prevent="" size="sm" weight="500">
                   {{ capitalize($t("apply")) }}
                </ui-button>
-               <ui-button class="contacts-btn" size="sm" weight="500" variant="light">
+               <ui-button
+                  class="contacts-btn"
+                  @click.prevent=""
+                  size="sm"
+                  weight="500"
+                  variant="light"
+               >
                   {{ capitalize($t("contacts")) }}
                </ui-button>
             </ui-spacing>
@@ -94,7 +100,14 @@ withDefaults(defineProps<VacancyCardProps>(), {
 
 <style scoped>
 .title {
+   color: var(--secondary-main);
+   font-weight: 600;
    font-size: 1.2rem;
+   opacity: 1;
+   transition: opacity 0.15s linear;
+}
+.title:hover{
+   opacity: 0.7;
 }
 .salary {
    font-weight: 500;

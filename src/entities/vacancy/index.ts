@@ -6,4 +6,5 @@ export type {
   VacancyStatus,
   VacancyExperienceType,
   VacancyExperience,
+  VacancyApplicationStatus
 } from './model/types'

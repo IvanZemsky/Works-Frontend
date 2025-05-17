@@ -51,3 +51,11 @@ export type VacancyContacts = {
    phone?: string
    name?: string
 }
+
+export type VacancyApplicationStatus =
+   | "applied"
+   | "invited"
+   | "rejected"
+   | "archived"
+   | "company_blocked"
+   | "employer_blocked"

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { provide, ref, type Ref } from "vue"
 import { MessageOutlined } from "@vicons/antd"
 import { IconBtn } from "@/shared/ui"
 
-const isOpen = ref(true)
+const isOpen = ref(false)
+
+provide<Ref<boolean>>("isOpen", isOpen)
 </script>
 
 <template>
@@ -24,7 +26,7 @@ const isOpen = ref(true)
 .chat-window {
    position: fixed;
    right: 0;
-   top: calc(100%) + 40px;
+   bottom: 40px;
    z-index: 900;
 }
 </style>

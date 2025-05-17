@@ -86,10 +86,10 @@ import { ToggleChatBtn, ChatWindow } from "@/features/chat"
    width: 30px;
 }
 
-.chat-btn :deep(.chat-window) {
-   max-width: 500px;
+:global(#chat .chat-window)  {
+   max-width: 900px;
    width: 100%;
-   height: 400px;
+   height: 600px;
 }
 
 .location-btn {
