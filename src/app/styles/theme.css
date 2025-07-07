@@ -1,0 +1,22 @@
+:root {
+  --secondary-main: #000;
+}
+
+html {
+  font-family: 'Montserrat';
+  color: var(--secondary-main);
+}
+
+
+a, button, input, textarea{
+   font-family: 'Montserrat';
+}
+
+a,
+a:visited{
+  color: inherit;
+}
+
+.ui-wrapper {
+  max-width: 1246px;
+}

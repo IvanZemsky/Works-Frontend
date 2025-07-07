@@ -1,0 +1,35 @@
+{
+   "per": "за",
+   "up to": "до",
+   "from": "от",
+   "years": "лет",
+   "year": "год",
+   "month": "месяц",
+   "contacts": "контакты",
+   "noExperience": "нет опыта",
+   "experience": "опыт",
+   "remote": "можно удалённо",
+   "apply": "откликнуться",
+   "hide": "скрыть",
+   "addTo": "добавить в",
+   "favorites": "избранные",
+   "vacancy": "вакансия",
+   "registration": "регистрация",
+   "authorization": "авторизация",
+   "authPages": {
+      "titles": {
+         "signIn": "Вход",
+         "signUp": "Регистрация"
+      },
+      "noAccountMsg": "Нет аккаунта?",
+      "haveAccountMsg": "Есть аккаунт?",
+      "registerMsg": "Зарегистрируйтесь!",
+      "authMsg": "Авторизуйтесь!",
+      "password": "Пароль",
+      "signIn": "Войти",
+      "signUp": "Отправить"
+   },
+   "homePage": {
+      "title": "Главная"
+   }
+}

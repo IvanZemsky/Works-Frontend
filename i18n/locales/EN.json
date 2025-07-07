@@ -1,0 +1,35 @@
+{
+   "per": "per",
+   "up to": "up to",
+   "from": "from",
+   "years": "years",
+   "year": "year",
+   "month": "month",
+   "contacts": "contacts",
+   "noExperience": "no experience",
+   "experience": "experience",
+   "remote": "remote",
+   "apply": "apply",
+   "hide": "hide",
+   "addTo": "add to",
+   "favorites": "favourites",
+   "vacancy": "vacancy",
+   "registration": "registration",
+   "authorization": "authorization",
+   "authPages": {
+      "titles": {
+         "signIn": "Sign in",
+         "signUp": "Sign up"
+      },
+      "noAccountMsg": "Have no account?",
+      "haveAccountMsg": "Already have an account?",
+      "registerMsg": "Register!",
+      "password": "Password",
+      "authMsg": "Sign-in!",
+      "signIn": "Sign in",
+      "signUp": "Sign up"
+   },
+   "homePage": {
+      "title": "Home"
+   }
+}
