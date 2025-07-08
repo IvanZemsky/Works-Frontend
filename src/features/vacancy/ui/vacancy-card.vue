@@ -12,13 +12,15 @@ type VacancyCardProps = {
    showDesc?: boolean;
 };
 
+const { push } = useRouter();
+
 withDefaults(defineProps<VacancyCardProps>(), {
    showDesc: false,
 });
 </script>
 
 <template>
-   <NuxtLink :to="link">
+   <nuxt-link :to="link" custom @click="push(link)">
       <ui-card hoverable>
          <ui-spacing vertical>
             <ui-spacing fill vertical gap="sm">
@@ -33,7 +35,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
                         </icon-btn>
                      </ui-tooltip>
                      <ui-tooltip
-                        :text="capitalize($t('addTo')) + ' ' + $t('favorites')"
+                        :text="capitalize($t('addTo'), $t('favorites'))"
                         position="top"
                      >
                         <icon-btn class="action-btn" @click.prevent="">
@@ -64,7 +66,6 @@ withDefaults(defineProps<VacancyCardProps>(), {
 
             <ui-spacing vertical :gap="[6, 6]">
                <ui-link
-                  as="nuxt-link"
                   :to="`/employers/${data.employer.id}`"
                   color="secondary"
                   hover="fade-light"
@@ -106,7 +107,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
             </ui-spacing>
          </ui-spacing>
       </ui-card>
-   </NuxtLink>
+   </nuxt-link>
 </template>
 
 <style scoped>

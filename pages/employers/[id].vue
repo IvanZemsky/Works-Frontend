@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { EmployerMock } from "@/src/entities/employer/mock"
-import EmployerCard from "@/src/pages/employer/ui/employer-card.vue"
+import EmployerCard from "~/src/pages/employer/ui/employer-card.vue"
 
 definePageMeta({
    layout: "applicant"

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import PageHeader from "@/src/pages/applicant-resumes/ui/page-header.vue"
-import ApplicantCard from "@/src/pages/applicant-resumes/ui/applicant-card.vue"
-import ResumeCard from "@/src/pages/applicant-resumes/ui/resume-card.vue"
+import PageHeader from "~/src/pages/applicant-resumes/ui/page-header.vue"
+import ApplicantCard from "~/src/pages/applicant-resumes/ui/applicant-card.vue"
+import ResumeCard from "~/src/pages/applicant-resumes/ui/resume-card.vue"
 
 definePageMeta({
    layout: "applicant"

@@ -10,11 +10,12 @@ import {
    UiSelectOption,
    UiModal,
    UiToast,
-   UiLink,
    UiTooltip,
    UiAvatar,
    UiChip,
 } from "works-ui"
+
+import {UiLink} from "@/src/shared/ui"
 
 export default defineNuxtPlugin((nuxtApp) => {
    nuxtApp.vueApp.component("ui-button", UiButton)

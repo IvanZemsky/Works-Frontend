@@ -41,7 +41,6 @@ import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
                </icon-btn>
                <ui-button
                   class="create-resume-link"
-                  as="nuxt-link"
                   to="/"
                   size="md"
                   color="secondary"

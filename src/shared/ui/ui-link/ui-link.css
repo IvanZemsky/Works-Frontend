@@ -1,0 +1,50 @@
+.ui-link {
+   font-size: 1rem;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+/* Color */
+
+.ui-link.color-primary {
+   color: var(--primary-main);
+}
+
+.ui-link.color-secondary {
+   color: var(--secondary-main);
+}
+
+/* Hover */
+
+.ui-link.hover-underline:hover {
+   text-decoration: underline;
+}
+
+.ui-link.color-primary.hover-fade-dark:hover {
+   color: var(--primary-dark);
+}
+
+.ui-link.color-secondary.hover-fade-dark:hover {
+   color: var(--secondary-dark);
+}
+
+.ui-link.color-primary.hover-fade-light:hover {
+   color: var(--primary-light);
+}
+
+.ui-link.color-secondary.hover-fade-light:hover {
+   color: var(--secondary-light);
+}
+
+/* Sizes */
+.ui-link.size-lg {
+   font-size: 1.1rem;
+}
+
+.ui-link.size-md {
+   font-size: 1rem;
+}
+
+.ui-link.size-sm {
+   font-size: 0.9rem;
+}

@@ -5,7 +5,7 @@
       <ui-spacing vertical>
          <ui-spacing vertical gap="sm">
             <h3 class="title">
-               <nuxt-link to="/resumes">Frontent разработчик</nuxt-link>
+               <ui-link to="/resumes">Frontent разработчик</ui-link>
             </h3>
             <p class="updated-date">Обновлено 8 мая 2025 в 11:00</p>
          </ui-spacing>

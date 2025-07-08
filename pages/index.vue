@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SearchOutlined } from "@vicons/antd"
-import InteractionCard from "@/src/pages/home/ui/interaction-card.vue"
-import LiftResumeCard from "@/src/pages/home/ui/lift-resume-card.vue"
+import InteractionCard from "~/src/pages/home/ui/interaction-card.vue"
+import LiftResumeCard from "~/src/pages/home/ui/lift-resume-card.vue"
 import VacancyCard from "@/src/features/vacancy/ui/vacancy-card.vue"
 import { vacancy } from "@/src/entities/vacancy/mock"
 

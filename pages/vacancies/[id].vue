@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VacancyDescCard from "@/src/pages/vacancy/ui/vacancy-desc-card.vue";
+import VacancyDescCard from "~/src/pages/vacancy/ui/vacancy-desc-card.vue";
 import { vacancy } from "@/src/entities/vacancy/mock";
 import { capitalize } from "vue";
 import { VacancySmallCard } from "@/src/features/vacancy";
