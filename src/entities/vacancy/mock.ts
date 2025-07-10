@@ -32,7 +32,7 @@ export const vacancy: Vacancy = {
          type: "years",
       },
    },
-   date: new Date(),
+   date: new Date("2022-01-01"),
    contacts: {
       email: "example@gmail.com",
       phone: "+7 (999) 999-99-99",

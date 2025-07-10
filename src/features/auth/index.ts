@@ -1,0 +1,1 @@
+export {useAuthStore} from "./model/stores/auth.store"

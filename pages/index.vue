@@ -1,102 +1,121 @@
 <script setup lang="ts">
-import { SearchOutlined } from "@vicons/antd"
-import InteractionCard from "~/src/pages/home/ui/interaction-card.vue"
-import LiftResumeCard from "~/src/pages/home/ui/lift-resume-card.vue"
-import VacancyCard from "@/src/features/vacancy/ui/vacancy-card.vue"
-import { vacancy } from "@/src/entities/vacancy/mock"
+import { WLogo } from "~/src/shared/ui";
 
 definePageMeta({
-   layout: "applicant"
+   layout: "guest"
 })
 </script>
 
 <template>
-   <ui-wrapper>
-      <ui-spacing fill vertical gap="lg">
-         <ui-spacing fill>
-            <ui-input placeholder="Профессия, должность или компания" class="input">
-               <template #icon><search-outlined /></template>
-            </ui-input>
-            <ui-button class="searchBtn">Найти</ui-button>
-         </ui-spacing>
-
-         <ui-spacing class="columns" gap="lg">
-            <ui-spacing class="actions-column" vertical>
-               <InteractionCard class="action-card" />
-               <LiftResumeCard class="action-card" />
-            </ui-spacing>
-
-            <ui-spacing vertical align="stretch">
-               <ui-spacing gap="sm">
-                  <ui-button rounded color="secondary" size="sm">Для вас</ui-button>
-                  <ui-button
+   <section class="intro">
+      <ui-wrapper class="wrapper">
+         <ui-spacing fill grow vertical gap="lg">
+            <ui-spacing as="header" fill align="center" justify="space-between">
+               <WLogo size="lg" />
+               <ui-spacing>
+                  <ui-button-link
+                     to="/sign-in"
+                     class="header-btn"
                      rounded
-                     color="secondary"
-                     variant="light"
-                     hover="light"
-                     size="sm"
+                     variant="outlined"
                   >
-                     Подработка
-                  </ui-button>
-                  <ui-button rounded color="secondary" variant="light" size="sm">
-                     От 16 лет
-                  </ui-button>
-                  <ui-button rounded color="secondary" variant="light" size="sm">
-                     Удалённая работа
-                  </ui-button>
-                  <ui-button rounded color="secondary" variant="light" size="sm">
-                     Стажировка
-                  </ui-button>
+                     {{ $t("mainPage.signIn") }}
+                  </ui-button-link>
+                  <ui-button-link
+                     to="/sign-in"
+                     class="header-btn"
+                     rounded
+                     variant="outlined"
+                  >
+                     {{ $t("mainPage.createResume") }}
+                  </ui-button-link>
                </ui-spacing>
+            </ui-spacing>
 
-               <ui-spacing vertical gap="sm">
-                  <VacancyCard
-                     :data="vacancy"
-                     :link="`/vacancies/${vacancy.id}`"
-                     show-desc
+            <ui-spacing class="desc" fill justify="center" vertical>
+               <h1 class="title">Работа найдётся для каждого</h1>
+               <ui-spacing fill align="center" gap="sm">
+                  <ui-input
+                     class="search-input"
+                     placeholder="Профессия, должность или компания"
                   />
-                  <VacancyCard
-                     :data="vacancy"
-                     :link="`/vacancies/${vacancy.id}`"
-                     show-desc
-                  />
-                  <VacancyCard
-                     :data="vacancy"
-                     :link="`/vacancies/${vacancy.id}`"
-                     show-desc
-                  />
-                  <VacancyCard
-                     :data="vacancy"
-                     :link="`/vacancies/${vacancy.id}`"
-                     show-desc
-                  />
+                  <ui-button>Найти</ui-button>
                </ui-spacing>
+               <ui-link class="employer-link" size="sm">
+                  Я ищу сотрудника
+               </ui-link>
+            </ui-spacing>
 
-               <ui-button class="showMoreBtn" variant="light" weight="500" size="lg">
-                  Посмотреть ещё
-               </ui-button>
+            <ui-spacing as="footer" fill align="center" justify="space-between">
+               <div class="info-block">
+                  <p class="info-block-count">0</p>
+                  <p class="info-block-label">Резюме</p>
+               </div>
+               <div class="info-block">
+                  <p class="info-block-count">0</p>
+                  <p class="info-block-label">Вакансии</p>
+               </div>
+               <div class="info-block">
+                  <p class="info-block-count">0</p>
+                  <p class="info-block-label">Компании</p>
+               </div>
             </ui-spacing>
          </ui-spacing>
-      </ui-spacing>
-   </ui-wrapper>
+      </ui-wrapper>
+   </section>
 </template>
 
 <style scoped>
-.input {
-   flex-grow: 1;
+.intro {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   min-height: calc(100vh - 200px);
+   background: url("/src/shared/assets/images/intro-1.jpg") no-repeat center /
+      cover;
 }
-.actions-column {
-   position: sticky;
-   top: 20px;
+.wrapper {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+}
+.intro::after {
+   content: "";
+   position: absolute;
+   top: 0;
    left: 0;
-   min-width: 300px;
-}
-.action-card {
-   width: 100%;
-}
-.searchBtn {
-   max-width: 200px;
    width: 100%;
    height: 100%;
+   background-color: rgba(0, 0, 0, 0.35);
+   z-index: 1;
+}
+.intro > * {
+   position: relative;
+   z-index: 2;
+}
+.desc {
+   margin: auto 0;
+}
+.title {
+   color: var(--primary-contrast);
+   font-size: 2rem;
+}
+.search-input {
+   max-width: 600px;
+   width: 100%;
+}
+.employer-link {
+   color: var(--primary-contrast);
+   text-decoration: underline;
+   text-underline-offset: 3px;
+}
+.info-block {
+   color: var(--primary-contrast);
+}
+.info-block-count {
+   font-size: 1.5rem;
+   font-weight: 600;
+}
+.info-block-label {
+   font-size: 0.8rem;
 }
 </style>

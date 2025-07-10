@@ -3,7 +3,7 @@ import { ArrowRightOutlined } from "@vicons/antd"
 </script>
 
 <template>
-   <ui-link to="/profile">
+   <nuxt-link to="/profile">
       <ui-card class="card">
          <ui-spacing align="center" gap="sm">
             <ui-avatar class="avatar" size="lg" alt="IK" />
@@ -14,7 +14,7 @@ import { ArrowRightOutlined } from "@vicons/antd"
             <arrow-right-outlined class="arrow-icon" />
          </ui-spacing>
       </ui-card>
-   </ui-link>
+   </nuxt-link>
 </template>
 
 <style scoped>

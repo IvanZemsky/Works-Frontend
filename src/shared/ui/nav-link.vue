@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue'
-import { useRoute } from 'vue-router'
-import { type UiLinkProps } from 'works-ui'
+import { useRoute } from "#app";
+import type { UiLinkProps } from 'works-ui'
 
 const props = withDefaults(defineProps<UiLinkProps>(), {})
 
@@ -11,7 +11,7 @@ const { to } = useAttrs()
 
 <template>
   <ui-link v-bind="props" :class="['link', { active: route.fullPath.startsWith(to as string) }]">
-    <slot></slot>
+    <slot/>
   </ui-link>
 </template>
 

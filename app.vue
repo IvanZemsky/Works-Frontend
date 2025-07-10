@@ -1,6 +1,13 @@
+<script lang="ts" setup>
+import RootLayout from "~/src/layouts/root-layout.vue";
+</script>
+
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-  <div id="chat"></div>
+   <RootLayout>
+      <NuxtLayout>
+         <NuxtPage />
+      </NuxtLayout>
+   </RootLayout>
+   <div id="chat"></div>
 </template>
+

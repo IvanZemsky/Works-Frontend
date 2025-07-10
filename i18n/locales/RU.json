@@ -29,6 +29,11 @@
       "signIn": "Войти",
       "signUp": "Отправить"
    },
+   "mainPage": {
+      "title": "Главная",
+      "signIn": "Войти",
+      "createResume": "Создать резюме"
+   },
    "homePage": {
       "title": "Главная"
    }

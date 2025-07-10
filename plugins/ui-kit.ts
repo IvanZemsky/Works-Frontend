@@ -13,9 +13,11 @@ import {
    UiTooltip,
    UiAvatar,
    UiChip,
+   UiSkeleton
 } from "works-ui"
 
-import {UiLink} from "@/src/shared/ui"
+import {UiLink, UiButtonLink} from "@/src/shared/ui"
+
 
 export default defineNuxtPlugin((nuxtApp) => {
    nuxtApp.vueApp.component("ui-button", UiButton)
@@ -33,4 +35,6 @@ export default defineNuxtPlugin((nuxtApp) => {
    nuxtApp.vueApp.component("ui-tooltip", UiTooltip)
    nuxtApp.vueApp.component("ui-avatar", UiAvatar)
    nuxtApp.vueApp.component("ui-chip", UiChip)
+   nuxtApp.vueApp.component("ui-skeleton", UiSkeleton)
+   nuxtApp.vueApp.component("ui-button-link", UiButtonLink)
 })

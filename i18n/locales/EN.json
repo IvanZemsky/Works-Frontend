@@ -29,6 +29,11 @@
       "signIn": "Sign in",
       "signUp": "Sign up"
    },
+   "mainPage": {
+      "title": "Home",
+      "signIn": "Sign in",
+      "createResume": "Crete resume"
+   },
    "homePage": {
       "title": "Home"
    }

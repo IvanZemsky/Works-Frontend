@@ -1,24 +1,18 @@
 <script setup lang="ts">
-import MainFooter from "../main-footer.vue";
-import ApplicantHeader from './applicant-header.vue'
+import MainFooter from "../../../main-footer.vue";
+import ApplicantHeader from "./applicant-header.vue";
 </script>
 
 <template>
-  <div class="layout">
-    <ApplicantHeader />
-    <main>
-      <slot/>
-    </main>
-    <MainFooter />
-  </div>
+   <ApplicantHeader />
+   <main class="main">
+      <slot />
+   </main>
+   <MainFooter/>
 </template>
 
 <style scoped>
-.layout {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 2rem;
-  width: 100%;
-  min-height: 100vh;
+.main{
+  margin: 2rem 0;
 }
 </style>
