@@ -1,36 +1,36 @@
-import { defineNuxtRouteMiddleware, navigateTo, useCookie } from "#imports";
-import {jwtDecode} from 'jwt-decode'; // Установите: npm install jwt-decode
+import { defineNuxtRouteMiddleware, navigateTo, useCookie } from "#imports"
+import { jwtDecode } from "jwt-decode"
+import { authService, type TokenData } from "~/src/entities/auth"
+import { PUBLIC_PAGES, ROUTES } from "~/src/shared/model"
 
-export default defineNuxtRouteMiddleware(async (to) => {
-   if (import.meta.client) {
-      return;
-   }
+export default defineNuxtRouteMiddleware((to) => {
+   if (import.meta.client) return
 
-   const accessToken = useCookie("access_token");
-   console.log("Access token:", accessToken.value);
-
-   const publicPages = ["/sign-in", "/sign-up"];
-   if (publicPages.includes(to.path)) {
-      return;
-   }
+   const accessToken = useCookie(authService.ACCESS_TOKEN_KEY)
 
    if (!accessToken.value) {
-      console.log("No token, redirecting to /sign-in"); // Add logging
-      return navigateTo("/sign-in");
+      if (PUBLIC_PAGES.includes(to.path)) return
+      return navigateTo(ROUTES.SIGN_IN)
    }
 
    try {
-      const decodedToken = jwtDecode<{ role: string; sub: string, exp: number }>(accessToken.value);
-      console.log("Decoded Token:", decodedToken);
+      const tokenPayload = decodeToken(accessToken.value)
 
-      if (decodedToken.exp && decodedToken.exp * 1000 < Date.now()) {
-          console.log("Token expired, redirecting to /sign-in");
-          accessToken.value = null; // Очищаем cookie, если токен истек
-          return navigateTo("/sign-in");
+      const isTokenExpired = tokenPayload.exp && tokenPayload.exp * 1000 < Date.now()
+      if (isTokenExpired) {
+         accessToken.value = null
+         return navigateTo(ROUTES.SIGN_IN, { replace: true })
       }
-   } catch (error) {
-      console.error("Error decoding token:", error);
-      accessToken.value = null;
-      return navigateTo("/sign-in");
+
+      if (PUBLIC_PAGES.includes(to.path)) {
+         return navigateTo(ROUTES.HOME, { replace: true })
+      }
+   } catch (_) {
+      accessToken.value = null
+      return navigateTo(ROUTES.SIGN_IN, { replace: true })
    }
-});
+})
+
+function decodeToken(token: string) {
+   return jwtDecode<TokenData>(token)
+}

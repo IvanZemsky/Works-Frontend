@@ -1,8 +1,23 @@
 <script setup lang="ts">
 import { HeartOutlined } from "@vicons/antd"
 import { ProfileIcon, NavigationIcon } from "@/src/shared/ui/icons"
-import {IconBtn, WLogo, NavLink} from "@/src/shared/ui"
+import { IconBtn, WLogo, NavLink } from "@/src/shared/ui"
 import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
+import { authService } from "~/src/entities/auth"
+
+const isProfileModalOpen = ref(false)
+
+const signOutQuery = useLazyAsyncData("signOut", authService.signOut, {
+   immediate: false,
+})
+
+function handleSignOutBtnClick() {
+   signOutQuery.execute()
+   if (!signOutQuery.error.value) {
+      isProfileModalOpen.value = false
+      navigateTo("/")
+   }
+}
 </script>
 
 <template>
@@ -33,9 +48,9 @@ import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
                </button>
 
                <ToggleChatBtn class="chat-btn">
-                  <ChatWindow/>
+                  <ChatWindow />
                </ToggleChatBtn>
-               
+
                <icon-btn class="action-btn">
                   <heart-outlined />
                </icon-btn>
@@ -48,9 +63,20 @@ import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
                >
                   Создать резюме
                </ui-button>
-               <icon-btn class="action-btn">
-                  <profile-icon />
-               </icon-btn>
+
+               <div class="profile-menu">
+                  <icon-btn
+                     class="action-btn"
+                     @click="isProfileModalOpen = !isProfileModalOpen"
+                  >
+                     <profile-icon />
+                  </icon-btn>
+
+                  <div v-if="isProfileModalOpen" class="profile-dropdown">
+                     <ui-button @click="handleSignOutBtnClick">Выйти</ui-button>
+                  </div>
+               </div>
+               
             </ui-spacing>
          </ui-spacing>
       </ui-wrapper>
@@ -85,7 +111,7 @@ import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
    width: 30px;
 }
 
-:global(#chat .chat-window)  {
+:global(#chat .chat-window) {
    max-width: 900px;
    width: 100%;
    height: 600px;
@@ -105,5 +131,13 @@ import { ToggleChatBtn, ChatWindow } from "@/src/features/chat"
 }
 .location-btn:hover {
    opacity: 1;
+}
+.profile-dropdown {
+   position: absolute;
+   top: 3rem;
+   right: 1rem;
+   padding: 0.5rem;
+   background-color: var(--secondary-contrast);
+   z-index: 900;
 }
 </style>
