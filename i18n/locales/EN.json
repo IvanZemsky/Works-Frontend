@@ -19,7 +19,10 @@
    "authPages": {
       "titles": {
          "signIn": "Sign in",
-         "signUp": "Sign up"
+         "signUp": "Sign up",
+         "register": "Register",
+         "employer": "Search employees",
+         "applicant": "Search employment"
       },
       "noAccountMsg": "Have no account?",
       "haveAccountMsg": "Already have an account?",

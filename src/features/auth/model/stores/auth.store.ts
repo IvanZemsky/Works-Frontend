@@ -1,25 +1,41 @@
-import type { SignInDTO } from "~/src/entities/user";
-import { CONFIG } from "~/src/shared/config";
+import { authService, type SignUpDTO } from "~/src/entities/auth"
 
 export const useAuthStore = defineStore("auth", () => {
-   const isAuth = ref(false);
+   async function submitSignIn(event: Event) {
+      const form = event.target as HTMLFormElement
+      const dto = {
+         login: form.login.value,
+         password: form.password.value,
+      }
 
-   async function signIn(dto: SignInDTO) {
       try {
-         await $fetch(`${CONFIG.API_URL}/auth/sign-in`, {
-            method: "POST",
-            body: dto,
-            credentials: "include",
-         });
+         await authService.signIn(dto)
+         await navigateTo("/")
+      } catch (error) {
+         console.log(error)
+      }
+   }
 
-         await navigateTo("/");
+   async function submitSignUp(event: Event) {
+      const form = event.target as HTMLFormElement
+      const dto: SignUpDTO = {
+         login: form.login.value,
+         password: form.password.value,
+         role: "applicant",
+      }
+
+      try {
+         await authService.signUp(dto)
+         await navigateTo("/")
       } catch (error) {
          console.log(error)
       }
    }
 
    return {
-      isAuth,
-      signIn,
-   };
-});
+      handlers: {
+         submitSignIn,
+         submitSignUp,
+      },
+   }
+})

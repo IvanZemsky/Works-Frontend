@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { WLogo } from "~/src/shared/ui";
+import { ROUTES } from "~/src/shared/model"
+import { WLogo } from "~/src/shared/ui"
 
 definePageMeta({
-   layout: "guest"
+   layout: "guest",
 })
 </script>
 
@@ -14,7 +15,7 @@ definePageMeta({
                <WLogo size="lg" />
                <ui-spacing>
                   <ui-button-link
-                     to="/sign-in"
+                     :to="ROUTES.ACCOUNT"
                      class="header-btn"
                      rounded
                      variant="outlined"
@@ -22,7 +23,7 @@ definePageMeta({
                      {{ $t("mainPage.signIn") }}
                   </ui-button-link>
                   <ui-button-link
-                     to="/sign-in"
+                     :to="ROUTES.ACCOUNT"
                      class="header-btn"
                      rounded
                      variant="outlined"
@@ -41,9 +42,7 @@ definePageMeta({
                   />
                   <ui-button>Найти</ui-button>
                </ui-spacing>
-               <ui-link class="employer-link" size="sm">
-                  Я ищу сотрудника
-               </ui-link>
+               <ui-link class="employer-link" size="sm">Я ищу сотрудника</ui-link>
             </ui-spacing>
 
             <ui-spacing as="footer" fill align="center" justify="space-between">
@@ -71,8 +70,7 @@ definePageMeta({
    flex-direction: column;
    position: relative;
    min-height: calc(100vh - 200px);
-   background: url("/src/shared/assets/images/intro-1.jpg") no-repeat center /
-      cover;
+   background: url("/src/shared/assets/images/intro-1.jpg") no-repeat center / cover;
 }
 .wrapper {
    padding-top: 2rem;

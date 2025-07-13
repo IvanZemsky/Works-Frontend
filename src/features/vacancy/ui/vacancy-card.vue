@@ -20,7 +20,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
 </script>
 
 <template>
-   <nuxt-link :to="link" custom @click="push(link)">
+   <nuxt-link class="vacancy-card-wrap" :to="link" custom @click="push(link)">
       <ui-card hoverable>
          <ui-spacing vertical>
             <ui-spacing fill vertical gap="sm">
@@ -111,6 +111,9 @@ withDefaults(defineProps<VacancyCardProps>(), {
 </template>
 
 <style scoped>
+.vacancy-card-wrap{
+   width: 100%;
+}
 .title {
    color: var(--secondary-main);
    font-weight: 600;

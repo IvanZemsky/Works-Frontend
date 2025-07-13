@@ -19,7 +19,10 @@
    "authPages": {
       "titles": {
          "signIn": "Вход",
-         "signUp": "Регистрация"
+         "signUp": "Регистрация",
+         "register": "Зарегистрироваться",
+         "employer": "Поиск сотрудников",
+         "applicant": "Поиск работы"
       },
       "noAccountMsg": "Нет аккаунта?",
       "haveAccountMsg": "Есть аккаунт?",

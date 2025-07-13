@@ -5,6 +5,7 @@
 html {
    font-family: "Montserrat";
    color: var(--secondary-main);
+   font-size: 20px;
 }
 
 a,
@@ -20,6 +21,7 @@ button {
    cursor: pointer;
    outline: none;
    border: none;
+   font-size: 1rem
 }
 
 a,

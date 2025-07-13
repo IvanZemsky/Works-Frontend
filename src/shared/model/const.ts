@@ -1,6 +1,4 @@
 export const ROUTES = {
-   SIGN_IN: "/sign-in",
-   SIGN_UP: "/sign-up",
    HOME: "/home",
    GUEST_PAGE: "/",
    EMPLOYER: "/employer",
@@ -10,6 +8,10 @@ export const ROUTES = {
    RESUMES: "/resumes",
    NEGOTIATIONS: "/negotiations",
    PROFILE: "/profile",
+   ACCOUNT: "/account",
 }
 
-export const PUBLIC_PAGES = [ROUTES.SIGN_IN, ROUTES.SIGN_UP, ROUTES.GUEST_PAGE]
+export const PUBLIC_PAGES = [
+   ROUTES.ACCOUNT,
+   ROUTES.GUEST_PAGE,
+]
