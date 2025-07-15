@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { vacancy as vacancyMock } from "@/src/entities/vacancy/mock"
-import { HomePage, InteractionCard, LiftResumeCard, ListButtons } from "~/src/pages/home"
-import { VacancySearchInput, VacancyList } from "~/src/features/vacancy"
+import { HomePage, InteractionCard, LiftResumeCard, ListButtons, HomeVacanciesList } from "~/src/pages/home"
+import { VacancySearchInput } from "~/src/features/vacancy"
 
 definePageMeta({
    layout: "applicant",
 })
 
-const vacancies = [vacancyMock]
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const vacancies = [vacancyMock]
          <ListButtons />
       </template>
       <template #vacancy-list>
-         <VacancyList :data="vacancies" />
+         <HomeVacanciesList/>
       </template>
    </HomePage>
 </template>

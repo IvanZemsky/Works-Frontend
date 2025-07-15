@@ -15,7 +15,10 @@ definePageMeta({
                <WLogo size="lg" />
                <ui-spacing>
                   <ui-button-link
-                     :to="ROUTES.ACCOUNT"
+                     :to="{
+                        path: ROUTES.ACCOUNT,
+                        query: { form: 'role-select', role: 'applicant' },
+                     }"
                      class="header-btn"
                      rounded
                      variant="outlined"
@@ -23,7 +26,10 @@ definePageMeta({
                      {{ $t("mainPage.signIn") }}
                   </ui-button-link>
                   <ui-button-link
-                     :to="ROUTES.ACCOUNT"
+                     :to="{
+                        path: ROUTES.ACCOUNT,
+                        query: { form: 'role-select', role: 'applicant' },
+                     }"
                      class="header-btn"
                      rounded
                      variant="outlined"
@@ -42,7 +48,16 @@ definePageMeta({
                   />
                   <ui-button>Найти</ui-button>
                </ui-spacing>
-               <ui-link class="employer-link" size="sm">Я ищу сотрудника</ui-link>
+               <ui-link
+                  :to="{
+                     path: ROUTES.ACCOUNT,
+                     query: { role: 'employer', form: 'role-select' },
+                  }"
+                  class="employer-link"
+                  size="sm"
+               >
+                  Я ищу сотрудника
+               </ui-link>
             </ui-spacing>
 
             <ui-spacing as="footer" fill align="center" justify="space-between">

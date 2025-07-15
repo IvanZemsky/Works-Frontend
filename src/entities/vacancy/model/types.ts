@@ -5,7 +5,7 @@ export type Vacancy = {
    status: VacancyStatus
    title: string
    description: string
-   employer: Employer
+   employer: Pick<Employer, "id" | "name" | "rating">
    location: VacancyLocation
    date: Date
    schedule: string
@@ -21,10 +21,8 @@ export type Vacancy = {
       max?: number
       period: VacancySalaryPeriod
    }
-   requirements: {
-      skills: string[]
-      experience: VacancyExperience
-   }
+   skills: string[]
+   experience: VacancyExperience
    contacts: VacancyContacts
 }
 

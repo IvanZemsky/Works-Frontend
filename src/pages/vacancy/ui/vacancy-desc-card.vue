@@ -21,7 +21,7 @@ defineProps<VacancyDescCardProps>();
                {{
                   vacancyFeatures.getExperienceString(
                      $t,
-                     data.requirements.experience
+                     data.experience
                   )
                }}
             </p>

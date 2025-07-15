@@ -19,9 +19,9 @@ definePageMeta({
             <ui-spacing vertical>
                <p class="contacts-title">{{ capitalize($t("contacts")) }}</p>
                <p v-if="vacancy.contacts.name">{{ vacancy.contacts.name }}</p>
-               <ui-button variant="light"
-                  >Показать {{ $t("contacts") }}</ui-button
-               >
+               <ui-button variant="light">
+                  Показать {{ $t("contacts") }}
+               </ui-button>
             </ui-spacing>
 
             <ui-spacing vertical gap="sm" class="ask-question">

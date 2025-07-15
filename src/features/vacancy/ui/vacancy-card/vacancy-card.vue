@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { vacancyFeatures } from "../lib";
+import { vacancyFeatures } from "../../lib";
 import { EyeOutlined, StarFilled, HeartOutlined } from "@vicons/antd";
 import type { Vacancy } from "@/src/entities/vacancy";
 import type { RouteLocationRaw } from "vue-router";
@@ -54,7 +54,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
                      {{
                         vacancyFeatures.getExperienceString(
                            $t,
-                           data.requirements.experience
+                           data.experience
                         )
                      }}
                   </ui-chip>

@@ -18,10 +18,7 @@
                </ui-spacing>
 
                <slot name="vacancy-list" />
-
-               <ui-button class="showMoreBtn" variant="light" weight="500" size="lg">
-                  Посмотреть ещё
-               </ui-button>
+               
             </ui-spacing>
          </ui-spacing>
       </ui-spacing>

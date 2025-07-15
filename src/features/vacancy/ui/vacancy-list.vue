@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Vacancy } from "~/src/entities/vacancy"
-import VacancyCard from "./vacancy-card.vue"
+import VacancyCard from "./vacancy-card/vacancy-card.vue"
 
 type Props = {
    data: Vacancy[]

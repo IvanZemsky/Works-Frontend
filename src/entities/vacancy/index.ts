@@ -8,3 +8,5 @@ export type {
   VacancyExperience,
   VacancyApplicationStatus
 } from './model/types'
+
+export { vacancyService } from "./api/service"

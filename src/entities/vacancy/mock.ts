@@ -1,4 +1,4 @@
-import type { Vacancy } from "./model/types";
+import type { Vacancy } from "./model/types"
 
 export const vacancy: Vacancy = {
    id: "1",
@@ -9,11 +9,7 @@ export const vacancy: Vacancy = {
    employer: {
       id: "1",
       name: "Google",
-      description: "Google",
       rating: 4.9,
-      type: "LLC",
-      website: "http://google.com",
-      location: "Moscow"
    },
    address: {
       city: "Москва",
@@ -24,14 +20,14 @@ export const vacancy: Vacancy = {
       max: 200000,
       period: "month",
    },
-   requirements: {
-      skills: ["React", "Vue"],
-      experience: {
-         min: 1.5,
-         max: null,
-         type: "years",
-      },
+
+   skills: ["React", "Vue"],
+   experience: {
+      min: 1.5,
+      max: null,
+      type: "years",
    },
+
    date: new Date("2022-01-01"),
    contacts: {
       email: "example@gmail.com",
