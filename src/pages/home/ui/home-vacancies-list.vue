@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { vacancyService } from "~/src/entities/vacancy"
-import { VacancyList, VacancyCardSkeleton } from "~/src/features/vacancy"
+import { type VacanciesSearchResponse, vacancyService } from "~/src/entities/vacancy"
+import { VacancyList } from "~/src/features/vacancy"
+import { ROUTES } from "~/src/shared/model"
 
-const { data, error, status } = await useAsyncData(
+const { data, error, status } = await useAsyncData<VacanciesSearchResponse>(
    "vacancies",
-   vacancyService.getVacancies,
+   () => vacancyService.getVacancies({ text_search: "" }),
    {
       server: false,
    },
@@ -12,20 +13,20 @@ const { data, error, status } = await useAsyncData(
 </script>
 
 <template>
-   <ui-spacing v-if="status === 'pending'" vertical fill>
-      <VacancyCardSkeleton v-for="i in 10" :key="i" />
-   </ui-spacing>
-
-   <template v-else-if="error">
-      <p v-if="error.statusCode === 404" class="error-msg">Ничего не найдено</p>
-      <p v-else class="error-msg">Произошла ошибка</p>
-   </template>
-
-   <VacancyList v-else-if="data" :data="data" />
-
-   <ui-button class="showMoreBtn" variant="light" weight="500" size="lg">
-      Посмотреть ещё
-   </ui-button>
+   <VacancyList
+      :data="data?.vacancies || null"
+      :is-pending="status === 'pending'"
+      :error="error"
+   >
+      <template #list-end>
+         <ui-button-link
+            :to="{ path: ROUTES.VACANCIES }"
+            variant="light"
+            weight="500"
+            size="lg"
+         >
+            Посмотреть ещё
+         </ui-button-link>
+      </template>
+   </VacancyList>
 </template>
-
-<style scoped></style>

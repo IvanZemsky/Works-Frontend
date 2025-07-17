@@ -15,7 +15,7 @@ function handleSignOutBtnClick() {
    signOutQuery.execute()
    if (!signOutQuery.error.value) {
       isProfileModalOpen.value = false
-      navigateTo("/")
+      navigateTo("/", {replace: true})
    }
 }
 </script>

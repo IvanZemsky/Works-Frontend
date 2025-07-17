@@ -40,6 +40,8 @@ export type VacancyExperience = {
    type?: VacancyExperienceType
 }
 
+export type VacancyEducation = "none" | "high" | "secondary"
+
 type VacancyMaxExperience<T> = T extends number ? number | null : T
 
 export type VacancyExperienceType = "years" | "months"

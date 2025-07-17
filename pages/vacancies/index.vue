@@ -1,15 +1,32 @@
 <script setup lang="ts">
+import { VacancySearchInput } from "~/src/features/vacancy"
+import {
+   VacanciesPage,
+   VacanciesFilters,
+   VacanciesListHeader,
+   VacanciesPageList,
+} from "~/src/pages/vacancies"
+
 definePageMeta({
-   layout: "applicant"
+   layout: "applicant",
 })
 </script>
 
 <template>
-   <div>
-12312
-   </div>
+   <VacanciesPage>
+      <template #search-input>
+         <VacancySearchInput />
+      </template>
+      <template #list-header>
+         <VacanciesListHeader />
+      </template>
+      <template #filters>
+         <VacanciesFilters />
+      </template>
+      <template #vacancy-list>
+         <VacanciesPageList />
+      </template>
+   </VacanciesPage>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
