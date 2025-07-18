@@ -24,7 +24,7 @@
                   </p>
                   <p class="stats-part">
                      <span class="stats-count">0</span>
-                     пирглашений
+                     приглашений
                   </p>
                </ui-spacing>
             </ui-card>

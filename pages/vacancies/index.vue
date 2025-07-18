@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { VacancySearchInput } from "~/src/features/vacancy"
 import {
    VacanciesPage,
    VacanciesFilters,
    VacanciesListHeader,
    VacanciesPageList,
+   VacanciesInput,
 } from "~/src/pages/vacancies"
 
 definePageMeta({
+   title: "Вакансии",
    layout: "applicant",
 })
 </script>
@@ -15,7 +16,7 @@ definePageMeta({
 <template>
    <VacanciesPage>
       <template #search-input>
-         <VacancySearchInput />
+         <VacanciesInput />
       </template>
       <template #list-header>
          <VacanciesListHeader />

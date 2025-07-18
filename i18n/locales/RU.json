@@ -30,7 +30,11 @@
       "authMsg": "Авторизуйтесь!",
       "password": "Пароль",
       "signIn": "Войти",
-      "signUp": "Отправить"
+      "signUp": "Отправить",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "patronymic": "Отчество (опционально)",
+      "login": "Логин"
    },
    "mainPage": {
       "title": "Главная",

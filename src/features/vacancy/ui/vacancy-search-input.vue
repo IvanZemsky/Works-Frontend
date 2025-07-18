@@ -2,7 +2,15 @@
 import SearchOutlined from "@vicons/antd/SearchOutlined"
 import { ROUTES } from "~/src/shared/model"
 
-const textSearch = ref("")
+type Props = {
+   default?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+   default: "",
+})
+
+const textSearch = ref(props.default)
 </script>
 
 <template>

@@ -1,33 +1,21 @@
-import { authService } from "~/src/entities/auth"
 import { PUBLIC_PAGES, ROUTES } from "~/src/shared/model"
 
 export default defineNuxtRouteMiddleware(async (to) => {
-   if (import.meta.client) return
-
-   const accessToken = useCookie(authService.ACCESS_TOKEN_KEY)
-   if (!accessToken.value) {
+   if (import.meta.client) {
       if (PUBLIC_PAGES.includes(to.path)) return
-      return navigateTo(ROUTES.ACCOUNT)
-   }
 
-   try {
-      await verifySession()
+      try {
+         await $fetch("/api/auth/check-session", {
+            method: "GET",
+            credentials: "include",
+            headers: useRequestHeaders(["cookie"]),
+         })
 
-      if (PUBLIC_PAGES.includes(to.path)) {
-         return navigateTo(ROUTES.HOME, { replace: true })
+         if (PUBLIC_PAGES.includes(to.path)) {
+            return navigateTo(ROUTES.HOME, { replace: true })
+         }
+      } catch (_) {
+         return navigateTo(ROUTES.ACCOUNT, { replace: true })
       }
-
-      return
-   } catch (_) {
-      accessToken.value = null
-      return navigateTo(ROUTES.ACCOUNT, { replace: true })
    }
 })
-
-async function verifySession() {
-   return await $fetch("/api/auth/check-session", {
-      method: "GET",
-      credentials: "include",
-      headers: useRequestHeaders(["cookie"]),
-   })
-}

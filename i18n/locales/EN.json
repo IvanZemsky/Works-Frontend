@@ -30,7 +30,11 @@
       "password": "Password",
       "authMsg": "Sign-in!",
       "signIn": "Sign in",
-      "signUp": "Sign up"
+      "signUp": "Sign up",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "patronymic": "Patronymic (optionally)",
+      "login": "Login"
    },
    "mainPage": {
       "title": "Home",

@@ -5,6 +5,22 @@ import { ROUTES } from "~/src/shared/model"
 const route = useRoute()
 const role = route.query.role as string
 
+type FormValues = {
+   firstName: string
+   lastName: string
+   patronymic: string
+   login: string
+   password: string
+}
+
+const errors = ref<Record<keyof FormValues, string | null>>({
+   firstName: null,
+   lastName: null,
+   patronymic: null,
+   login: null,
+   password: null,
+})
+
 async function submitSignIp(event: Event) {
    if (role !== "applicant" && role !== "employer") {
       console.error("Invalid role")
@@ -13,6 +29,9 @@ async function submitSignIp(event: Event) {
 
    const form = event.target as HTMLFormElement
    const dto: SignUpDTO = {
+      firstName: form.first_name.value,
+      lastName: form.last_name.value,
+      patronymic: form.patronymic.value || null,
       login: form.login.value,
       password: form.password.value,
       role,
@@ -20,7 +39,7 @@ async function submitSignIp(event: Event) {
 
    try {
       await authService.signUp(dto)
-      await navigateTo(ROUTES.HOME)
+      await navigateTo(ROUTES.HOME, { replace: true })
    } catch (error) {
       console.log(error)
    }
@@ -28,10 +47,13 @@ async function submitSignIp(event: Event) {
 </script>
 
 <template>
-   <form class="form"  @submit.prevent="submitSignIp">
+   <form class="form" @submit.prevent="submitSignIp">
       <ui-spacing vertical>
-          <h1 class="title">{{ $t(`authPages.titles.${role}`) }}</h1>
-         <ui-input placeholder="Login" name="login" />
+         <h1 class="title">{{ $t(`authPages.titles.${role}`) }}</h1>
+         <ui-input :placeholder="$t('authPages.firstName')" name="first_name" />
+         <ui-input :placeholder="$t('authPages.lastName')" name="last_name" />
+         <ui-input :placeholder="$t('authPages.patronymic')" name="patronymic" />
+         <ui-input :placeholder="$t('authPages.login')" name="login" />
          <ui-input
             :placeholder="$t('authPages.password')"
             name="password"

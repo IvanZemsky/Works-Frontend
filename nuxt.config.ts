@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       "/sign-in": {ssr: false},
       "/sign-up": {ssr: false},
       "/home": {ssr: false},
+      "/applicant/resumes": {ssr: false},
       "/api/**": { proxy: "http://localhost:5000/**" },
    },
    css: [

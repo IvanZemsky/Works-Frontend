@@ -4,6 +4,9 @@ export type SignInDTO = {
 }
 
 export type SignUpDTO = {
+   firstName: string
+   lastName: string
+   patronymic: string
    login: string
    password: string
    role: "applicant" | "employer"
