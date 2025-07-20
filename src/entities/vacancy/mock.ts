@@ -22,11 +22,7 @@ export const vacancy: Vacancy = {
    },
 
    skills: ["React", "Vue"],
-   experience: {
-      min: 1.5,
-      max: null,
-      type: "years",
-   },
+   experience: "1-3",
 
    date: new Date("2022-01-01"),
    contacts: {

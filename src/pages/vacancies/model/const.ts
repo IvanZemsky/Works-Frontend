@@ -30,12 +30,12 @@ export const EDUCATION_FILTERS = [
    {
       id: "education-no",
       label: "Не требуется или не указано",
-      value: undefined,
+      value: "none",
    },
    {
       id: "education-3",
       label: "Высшее",
-      value: "higher",
+      value: "high",
    },
    {
       id: "education-1",
@@ -46,14 +46,9 @@ export const EDUCATION_FILTERS = [
 
 export const EXPERIENCE_FILTERS = [
    {
-      id: "experience-no",
-      label: "Не имеет значения",
-      value: "none",
-   },
-   {
       id: "experience-0",
       label: "Нет опыта",
-      value: "0",
+      value: "none",
    },
    {
       id: "experience-1-3",

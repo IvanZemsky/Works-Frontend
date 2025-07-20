@@ -1,1 +1,1 @@
-export {ROUTES, PUBLIC_PAGES} from './const'
+export { ROUTES, PUBLIC_PAGES, NO_MIDDLEWARE_REDIRECT_CODE } from "./const"

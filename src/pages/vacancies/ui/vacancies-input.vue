@@ -2,9 +2,14 @@
 import { VacancySearchInput } from "~/src/features/vacancy"
 
 const route = useRoute()
-const textSearch = computed(() => route.query.text_search as string)
+const queryParams = computed(() => route.query)
+const textSearch = computed(() => queryParams.value.text_search as string)
+const prevQueryParams = computed(() => {
+   const { text_search: _, ...rest } = queryParams.value
+   return rest
+})
 </script>
 
 <template>
-   <VacancySearchInput :default="textSearch" />
+   <VacancySearchInput :default="textSearch" :prev-query-params="prevQueryParams" />
 </template>

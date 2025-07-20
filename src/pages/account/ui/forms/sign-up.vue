@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { authService, type SignUpDTO } from "~/src/entities/auth"
 import { ROUTES } from "~/src/shared/model"
+import { useAccountForm } from "../../lib/use-account-form"
 
-const route = useRoute()
-const role = route.query.role as string
+const { role } = useAccountForm()
 
 type FormValues = {
    firstName: string
@@ -22,11 +22,6 @@ const errors = ref<Record<keyof FormValues, string | null>>({
 })
 
 async function submitSignIp(event: Event) {
-   if (role !== "applicant" && role !== "employer") {
-      console.error("Invalid role")
-      return
-   }
-
    const form = event.target as HTMLFormElement
    const dto: SignUpDTO = {
       firstName: form.first_name.value,
@@ -34,7 +29,7 @@ async function submitSignIp(event: Event) {
       patronymic: form.patronymic.value || null,
       login: form.login.value,
       password: form.password.value,
-      role,
+      role: role.value,
    }
 
    try {

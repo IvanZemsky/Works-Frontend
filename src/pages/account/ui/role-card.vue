@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import UserOutlined from "@vicons/antd/UserOutlined"
+import { useAccountForm } from "../lib/use-account-form"
 
 defineProps<{ title: string; desc: string; role: "applicant" | "employer" }>()
 
-const route = useRoute()
-const currentRole = computed(() => route.query.role as "employer" | "applicant")
+const { role: currentRole } = useAccountForm()
 </script>
 
 <template>

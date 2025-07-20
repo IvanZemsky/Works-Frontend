@@ -1,15 +1,21 @@
 <script setup lang="ts">
 // REFACTOR WHEN NUXT'S DEDUPLICATION IS FIXED
-import { type VacanciesSearchResponse, vacancyService } from "~/src/entities/vacancy";
+import {
+   type VacanciesSearchDTO,
+   type VacanciesSearchResponse,
+   vacancyService,
+} from "~/src/entities/vacancy"
 
 const route = useRoute()
-const textSearch = computed(() => route.query.text_search as string)
+const filters = computed<VacanciesSearchDTO>(() => route.query)
+
+const queryKey = `vacancies-${JSON.stringify(filters.value)}`
 
 const data = useAsyncData<VacanciesSearchResponse>(
-   `vacancies-${textSearch.value}`,
-   () => vacancyService.getVacancies({ text_search: textSearch.value }),
+   queryKey,
+   () => vacancyService.getVacancies(filters.value),
    {
-      watch: [textSearch],
+      watch: [filters],
    },
 )
 
@@ -17,5 +23,5 @@ provide("vacancies", data)
 </script>
 
 <template>
-  <slot/>
+   <slot />
 </template>

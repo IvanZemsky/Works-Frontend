@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { vacancyFeatures } from "../../lib";
-import { EyeOutlined, StarFilled, HeartOutlined } from "@vicons/antd";
-import type { Vacancy } from "@/src/entities/vacancy";
-import type { RouteLocationRaw } from "vue-router";
-import { IconBtn } from "@/src/shared/ui";
-import { capitalize } from "~/src/shared/lib";
+import { vacancyFeatures } from "../../lib"
+import { EyeOutlined, StarFilled, HeartOutlined } from "@vicons/antd"
+import type { Vacancy } from "@/src/entities/vacancy"
+import type { RouteLocationRaw } from "vue-router"
+import { IconBtn } from "@/src/shared/ui"
+import { capitalize } from "~/src/shared/lib"
 
 type VacancyCardProps = {
-   data: Vacancy;
-   link: RouteLocationRaw;
-   showDesc?: boolean;
-};
+   data: Vacancy
+   link: RouteLocationRaw
+   showDesc?: boolean
+}
 
-const { push } = useRouter();
+const { push } = useRouter()
 
 withDefaults(defineProps<VacancyCardProps>(), {
    showDesc: false,
-});
+})
 </script>
 
 <template>
@@ -50,13 +50,10 @@ withDefaults(defineProps<VacancyCardProps>(), {
                      {{ vacancyFeatures.getSalaryString($t, data.salary) }}
                   </p>
                   <ui-chip size="sm" color="neutral">
-                     {{ capitalize($t("experience")) }}
                      {{
-                        vacancyFeatures.getExperienceString(
-                           $t,
-                           data.experience
-                        )
+                       data.experience === "none" ? "" : capitalize($t("experience"))
                      }}
+                     {{ vacancyFeatures.getExperienceString($t, data.experience) }}
                   </ui-chip>
                   <ui-chip size="sm" color="neutral">
                      {{ capitalize($t("remote")) }}
@@ -87,12 +84,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
             </p>
 
             <ui-spacing gap="sm">
-               <ui-button
-                  class="apply-btn"
-                  size="sm"
-                  weight="500"
-                  @click.prevent=""
-               >
+               <ui-button class="apply-btn" size="sm" weight="500" @click.prevent="">
                   {{ capitalize($t("apply")) }}
                </ui-button>
                <ui-button
@@ -111,7 +103,7 @@ withDefaults(defineProps<VacancyCardProps>(), {
 </template>
 
 <style scoped>
-.vacancy-card-wrap{
+.vacancy-card-wrap {
    width: 100%;
 }
 .title {

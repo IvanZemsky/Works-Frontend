@@ -9,23 +9,44 @@ import {
 } from "works-ui"
 import { INCOME_FILTERS, EXPERIENCE_FILTERS, EDUCATION_FILTERS } from "../model/const"
 import { watch } from "vue"
-import type { VacancyEducation } from "~/src/entities/vacancy"
+import type { VacanciesSearchDTO } from "~/src/entities/vacancy"
+import { NO_MIDDLEWARE_REDIRECT_CODE, ROUTES } from "~/src/shared/model"
+import { vacancyFeatures } from "~/src/features/vacancy"
+import { useInitFilters } from "../lib/composables/use-init-filters"
+import type { Filters } from "../model/types"
 
-const income = ref<number | undefined>(undefined)
-const isIncome = ref<boolean>(false)
-const education = ref<VacancyEducation[]>(["none"])
-const experience = ref<string>("none")
+const { filters, initialFilters } = useInitFilters()
 
-watch(income, () => {
-   if (income.value) {
-      isIncome.value = true
-   }
+watch(filters, (newFilters) => updateRouteFilters(newFilters, initialFilters), {
+   deep: true,
 })
+
+async function updateRouteFilters(
+   newFilters: Filters,
+   initialFilters: Ref<VacanciesSearchDTO>,
+) {
+   const queryFilters = vacancyFeatures.parseFiltersToQueryParams(
+      { text_search: initialFilters.value.text_search, ...newFilters },
+      {
+         isIncome: "is_income",
+         income: "salary_from",
+      },
+   )
+   await navigateTo(
+      { path: ROUTES.VACANCIES, query: queryFilters },
+      { redirectCode: NO_MIDDLEWARE_REDIRECT_CODE },
+   )
+}
 </script>
 
 <template>
    <ui-spacing vertical align="stretch">
-      <ui-radio-group v-model="income" name="income" title="Уровень дохода" size="sm">
+      <ui-radio-group
+         v-model="filters.income"
+         name="income"
+         title="Уровень дохода"
+         size="sm"
+      >
          <ui-radio-group-item
             v-for="INCOME in INCOME_FILTERS"
             :key="INCOME.id"
@@ -34,7 +55,7 @@ watch(income, () => {
       </ui-radio-group>
 
       <ui-input
-         v-model="income"
+         v-model="filters.income"
          size="sm"
          type="number"
          min="0"
@@ -45,13 +66,18 @@ watch(income, () => {
 
    <ui-check
       id="is-income"
-      v-model="isIncome"
+      v-model="filters.isIncome"
       name="is-income"
       size="sm"
       label="Указан доход"
    />
 
-   <ui-check-group v-model="education" name="education" title="Образование" size="sm">
+   <ui-check-group
+      v-model="filters.education"
+      name="education"
+      title="Образование"
+      size="sm"
+   >
       <ui-check-group-item
          v-for="EDUCATION in EDUCATION_FILTERS"
          :key="EDUCATION.id"
@@ -59,7 +85,12 @@ watch(income, () => {
       />
    </ui-check-group>
 
-   <ui-radio-group v-model="experience" name="experience" title="Опыт работы" size="sm">
+   <ui-radio-group
+      v-model="filters.experience"
+      name="experience"
+      title="Опыт работы"
+      size="sm"
+   >
       <ui-radio-group-item v-for="EXP in EXPERIENCE_FILTERS" :key="EXP.id" v-bind="EXP" />
    </ui-radio-group>
 </template>

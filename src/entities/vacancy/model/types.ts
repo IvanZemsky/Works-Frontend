@@ -34,15 +34,9 @@ export type VacancyStatus = "open" | "closed" | "archived"
 
 export type VacancySalaryPeriod = "year" | "month"
 
-export type VacancyExperience = {
-   min: number
-   max: VacancyMaxExperience<VacancyExperience["min"]>
-   type?: VacancyExperienceType
-}
-
 export type VacancyEducation = "none" | "high" | "secondary"
 
-type VacancyMaxExperience<T> = T extends number ? number | null : T
+export type VacancyExperience = "none" | "1-3" | "3-6" | "6+"
 
 export type VacancyExperienceType = "years" | "months"
 

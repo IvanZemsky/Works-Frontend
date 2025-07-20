@@ -1,26 +1,16 @@
 <script setup lang="ts">
+import { useAccountForm } from "../../lib/use-account-form"
 import RoleCard from "../role-card.vue"
 import { ROUTES } from "~/src/shared/model"
 
-const route = useRoute()
-const role = computed(() => route.query.role as "employer" | "applicant")
-
-onBeforeMount(() => {
-   if (!role.value || (role.value !== "employer" && role.value !== "applicant")) {
-      navigateTo({ path: "/account", query: { form: "role-select", role: "applicant" } })
-   }
-})
+const { role } = useAccountForm()
 </script>
 
 <template>
    <ui-spacing vertical align="stretch">
       <h1 class="title">{{ $t("authPages.titles.signIn") }}</h1>
       <ui-spacing vertical align="stretch" gap="sm">
-         <RoleCard
-            role="applicant"
-            title="Я ищу работу"
-            desc="Профиль соискателя"
-         />
+         <RoleCard role="applicant" title="Я ищу работу" desc="Профиль соискателя" />
          <RoleCard
             role="employer"
             title="Я ищу сотрудников"

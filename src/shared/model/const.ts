@@ -9,9 +9,12 @@ export const ROUTES = {
    NEGOTIATIONS: "/negotiations",
    PROFILE: "/profile",
    ACCOUNT: "/account",
+   ACCOUNT_DEFAULT: {
+      path: "/account",
+      query: { form: "role-select", role: "applicant" },
+   },
 }
 
-export const PUBLIC_PAGES = [
-   ROUTES.ACCOUNT,
-   ROUTES.GUEST_PAGE,
-]
+export const NO_MIDDLEWARE_REDIRECT_CODE = 600
+
+export const PUBLIC_PAGES = [ROUTES.ACCOUNT, ROUTES.GUEST_PAGE]

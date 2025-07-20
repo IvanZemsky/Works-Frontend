@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import { authService, type SignInDTO } from "~/src/entities/auth"
 import { ROUTES } from "~/src/shared/model"
+import { useAccountForm } from "../../lib/use-account-form"
 
-const route = useRoute()
-const role = computed(() => route.query.role as string)
+const { role } = useAccountForm()
 
 async function submitSignIn(event: Event) {
-   if (role.value !== "applicant" && role.value !== "employer") {
-      console.error("Invalid role")
-      return
-   }
-
    const form = event.target as HTMLFormElement
    const dto: SignInDTO = {
       login: form.login.value,
