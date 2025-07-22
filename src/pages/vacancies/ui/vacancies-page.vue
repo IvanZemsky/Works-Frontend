@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import VacanciesSearchProvider from "../model/vacancies-search-provider.vue"
+
+useHead({
+   title: "Вакансии",
+})
 </script>
 
 <template>

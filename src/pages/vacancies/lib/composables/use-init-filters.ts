@@ -22,13 +22,11 @@ export function useInitFilters() {
       { immediate: true },
    )
 
-   watch(
-      () => route.query,
-      () => updateFiltersFromRoute(filters, initialFilters),
-      { immediate: true },
-   )
+   watch(initialFilters, () => updateFiltersFromRoute(filters, initialFilters), {
+      immediate: true,
+   })
 
-   return {filters, initialFilters}
+   return { filters, initialFilters }
 }
 
 function updateFiltersFromRoute(

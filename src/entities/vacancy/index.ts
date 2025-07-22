@@ -8,6 +8,7 @@ export type {
    VacancyExperience,
    VacancyApplicationStatus,
    VacancyEducation,
+   VacancyContacts,
 } from "./model/types"
 
 export type { VacanciesSearchDTO, VacanciesSearchResponse } from "./model/dto"

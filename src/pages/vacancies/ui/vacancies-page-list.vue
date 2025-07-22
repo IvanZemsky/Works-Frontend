@@ -4,6 +4,7 @@ import { useInject } from "works-ui"
 import type { VacanciesProvide } from "../model/types"
 
 const { data, error, status } = useInject<VacanciesProvide>("vacancies")
+
 </script>
 
 <template>

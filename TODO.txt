@@ -1,6 +1,7 @@
 - ЗАПРОС в list и header должен быть одним (vacancies)
 - composable для форм
 - разделить страницы на templates
+- debounce
 - авторизация только на клиенте
 
 - убрать authStore?
