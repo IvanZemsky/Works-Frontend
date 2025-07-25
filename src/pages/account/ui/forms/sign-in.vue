@@ -1,29 +1,24 @@
 <script setup lang="ts">
-import { authService, type SignInDTO } from "~/src/entities/auth"
-import { ROUTES } from "~/src/shared/model"
-import { useAccountForm } from "../../lib/use-account-form"
+import { useSignIn } from "~/src/features/auth"
 
-const { role } = useAccountForm()
+defineProps<{ role: "applicant" | "employer" }>()
+
+const { login, isPending, loginData } = useSignIn()
 
 async function submitSignIn(event: Event) {
    const form = event.target as HTMLFormElement
-   const dto: SignInDTO = {
+   loginData.value = {
       login: form.login.value,
       password: form.password.value,
    }
 
-   try {
-      await authService.signIn(dto)
-      await navigateTo(ROUTES.HOME)
-   } catch (error) {
-      console.log(error)
-   }
+   await login()
 }
 </script>
 
 <template>
    <form class="form" @submit.prevent="submitSignIn">
-      <ui-spacing vertical >
+      <ui-spacing vertical>
          <h1 class="title">{{ $t(`authPages.titles.${role}`) }}</h1>
          <ui-input placeholder="Login" name="login" />
          <ui-input
@@ -31,7 +26,7 @@ async function submitSignIn(event: Event) {
             name="password"
             type="password"
          />
-         <ui-button class="submit-btn" size="lg" type="submit">
+         <ui-button :disabled="isPending" class="submit-btn" size="lg" type="submit">
             {{ $t("authPages.signIn") }}
          </ui-button>
       </ui-spacing>
@@ -39,7 +34,7 @@ async function submitSignIn(event: Event) {
 </template>
 
 <style scoped>
-.form .ui-input{
+.form .ui-input {
    width: 100%;
 }
 .title {

@@ -2,8 +2,6 @@ import type { TokenData } from "../model/types"
 import type { SignInDTO, SignUpDTO } from "../model/dto"
 
 export const authService = {
-   ACCESS_TOKEN_KEY: "access_token",
-
    async signUp(dto: SignUpDTO) {
       await $fetch(`/api/auth/sign-up`, {
          method: "POST",

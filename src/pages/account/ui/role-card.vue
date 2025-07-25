@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import UserOutlined from "@vicons/antd/UserOutlined"
-import { useAccountForm } from "../lib/use-account-form"
 
-defineProps<{ title: string; desc: string; role: "applicant" | "employer" }>()
-
-const { role: currentRole } = useAccountForm()
+defineProps<{
+   title: string
+   desc: string
+   role: "applicant" | "employer"
+   currentRole: "applicant" | "employer"
+}>()
 </script>
 
 <template>

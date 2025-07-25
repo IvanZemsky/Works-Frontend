@@ -1,3 +1,3 @@
-import AccountPage from "./ui/account-page.vue";
+import AccountPage from "./ui/account-page.vue"
 
-export { AccountPage };
+export { AccountPage }

@@ -1,1 +1,1 @@
-export { ROUTES, PUBLIC_PAGES, NO_MIDDLEWARE_REDIRECT_CODE } from "./const"
+export { ROUTES, ONLY_PUBLIC_PAGES } from "./router"

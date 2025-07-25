@@ -6,3 +6,14 @@ export function debounce<T extends (...args: any) => any>(callback: T, timeout =
       timeoutId = setTimeout(() => callback.apply(this, args), timeout)
    }
 }
+
+export function useDebouncedValue<T>(initial: T, timeout = 1000) {
+   const internal = ref<T>(initial)
+   const debounced = ref<T>(initial)
+
+   watch(internal, () => {
+      debounced.value = debounce(() => ((debounced.value = internal.value), timeout))
+   })
+
+   return [internal, debounced]
+}

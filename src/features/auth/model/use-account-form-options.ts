@@ -1,9 +1,9 @@
 import { ROUTES } from "~/src/shared/model"
-import type { AccountForms } from "../model/types"
+import type { AccountForms } from "./types"
 
 const forms: AccountForms[] = ["sign-in", "sign-up", "role-select"]
 
-export function useAccountForm() {
+export function useAccountFormOptions() {
    const route = useRoute()
 
    const form = computed(() => route.query.form as AccountForms)

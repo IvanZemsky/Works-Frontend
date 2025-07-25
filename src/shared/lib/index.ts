@@ -1,4 +1,4 @@
-export { debounce } from "./utils/debounce"
-export {capitalize} from './utils/capitalize'
-export {clearURL} from './utils/clear-url'
-export {useDynamicTitle} from './composables/use-dynamic-title'
+export { capitalize, clearURL } from "./text"
+export { debounce, useDebouncedValue } from "./debounce"
+export { useDynamicTitle } from "./nuxt"
+export { useForm } from "./forms"

@@ -1,17 +1,23 @@
 <script setup lang="ts">
-import { useAccountForm } from "../../lib/use-account-form"
+import { useAccountFormOptions } from "~/src/features/auth/model/use-account-form-options"
 import RoleCard from "../role-card.vue"
 import { ROUTES } from "~/src/shared/model"
 
-const { role } = useAccountForm()
+const { role } = useAccountFormOptions()
 </script>
 
 <template>
    <ui-spacing vertical align="stretch">
       <h1 class="title">{{ $t("authPages.titles.signIn") }}</h1>
       <ui-spacing vertical align="stretch" gap="sm">
-         <RoleCard role="applicant" title="Я ищу работу" desc="Профиль соискателя" />
          <RoleCard
+            :current-role="role"
+            role="applicant"
+            title="Я ищу работу"
+            desc="Профиль соискателя"
+         />
+         <RoleCard
+            :current-role="role"
             role="employer"
             title="Я ищу сотрудников"
             desc="Профиль работодателя"

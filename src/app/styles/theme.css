@@ -32,3 +32,8 @@ a:visited {
 .ui-wrapper {
    max-width: 1246px;
 }
+
+.ui-button:disabled{
+   opacity: 0.5;
+   cursor: default;
+}

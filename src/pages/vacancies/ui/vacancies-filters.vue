@@ -8,35 +8,10 @@ import {
    UiCheckGroupItem,
 } from "works-ui"
 import { INCOME_FILTERS, EXPERIENCE_FILTERS, EDUCATION_FILTERS } from "../model/const"
-import { watch } from "vue"
-import type { VacanciesSearchDTO } from "~/src/entities/vacancy"
-import { NO_MIDDLEWARE_REDIRECT_CODE, ROUTES } from "~/src/shared/model"
-import { vacancyFeatures } from "~/src/features/vacancy"
-import { useInitFilters } from "../lib/composables/use-init-filters"
-import type { Filters } from "../model/types"
+import { useFilters } from "../lib/composables/use-init-filters";
 
-const { filters, initialFilters } = useInitFilters()
+const filters = useFilters()
 
-watch(filters, (newFilters) => updateRouteFilters(newFilters, initialFilters), {
-   deep: true,
-})
-
-async function updateRouteFilters(
-   newFilters: Filters,
-   initialFilters: Ref<VacanciesSearchDTO>,
-) {
-   const queryFilters = vacancyFeatures.parseFiltersToQueryParams(
-      { text_search: initialFilters.value.text_search, ...newFilters },
-      {
-         isIncome: "is_income",
-         income: "salary_from",
-      },
-   )
-   await navigateTo(
-      { path: ROUTES.VACANCIES, query: queryFilters },
-      { redirectCode: NO_MIDDLEWARE_REDIRECT_CODE },
-   )
-}
 </script>
 
 <template>

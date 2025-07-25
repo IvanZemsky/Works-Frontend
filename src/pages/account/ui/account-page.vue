@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { useAccountForm } from "../lib/use-account-form"
+import { useAccountFormOptions } from "~/src/features/auth/model/use-account-form-options"
 import RoleSelectionForm from "./forms/role-selecton-form.vue"
 import SignInForm from "./forms/sign-in.vue"
 import SignUpForm from "./forms/sign-up.vue"
 
-const { form } = useAccountForm()
+const { form, role } = useAccountFormOptions()
 </script>
 
 <template>
    <ui-wrapper class="wrapper">
       <ui-card class="content-card">
          <RoleSelectionForm v-if="form === 'role-select'" />
-         <SignInForm v-if="form === 'sign-in'" />
-         <SignUpForm v-if="form === 'sign-up'" />
+         <SignInForm v-if="form === 'sign-in'" :role="role" />
+         <SignUpForm v-if="form === 'sign-up'" :role="role" />
       </ui-card>
    </ui-wrapper>
 </template>
