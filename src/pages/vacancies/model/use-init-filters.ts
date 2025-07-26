@@ -1,9 +1,9 @@
 import type { VacancyEducation, VacanciesSearchDTO } from "~/src/entities/vacancy"
-import type { Filters } from "../../model/types"
+import type { Filters } from "./types"
 import { vacancyFeatures } from "~/src/features/vacancy"
 import { ROUTES } from "~/src/shared/model"
 
-export function useFilters() {
+export function useInitFilters() {
    const route = useRoute()
    const initialFilters = computed(() => route.query as VacanciesSearchDTO)
 
@@ -32,20 +32,6 @@ export function useFilters() {
       deep: true,
    })
 
-   async function updateRouteFilters(
-      newFilters: Filters,
-      initialFilters: Ref<VacanciesSearchDTO>,
-   ) {
-      const queryFilters = vacancyFeatures.parseFiltersToQueryParams(
-         { text_search: initialFilters.value.text_search, ...newFilters },
-         {
-            isIncome: "is_income",
-            income: "salary_from",
-         },
-      )
-      await navigateTo({ path: ROUTES.VACANCIES, query: queryFilters })
-   }
-
    return filters
 }
 
@@ -61,4 +47,18 @@ function updateFiltersFromRoute(
          ? (initialFilters.value.education as string).split(",")
          : []) as VacancyEducation[],
    }
+}
+
+async function updateRouteFilters(
+   newFilters: Filters,
+   initialFilters: Ref<VacanciesSearchDTO>,
+) {
+   const queryFilters = vacancyFeatures.parseFiltersToQueryParams(
+      { text_search: initialFilters.value.text_search, ...newFilters },
+      {
+         isIncome: "is_income",
+         income: "salary_from",
+      },
+   )
+   await navigateTo({ path: ROUTES.VACANCIES, query: queryFilters })
 }

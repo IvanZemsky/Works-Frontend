@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { VacancyDescCardProps } from "../model/types";
-import { vacancyFeatures } from "@/src/features/vacancy";
-import { capitalize } from "@/src/shared/lib";
-import { HeartOutlined, EyeOutlined } from "@vicons/antd";
+import { vacancyFeatures } from "@/src/features/vacancy"
+import { capitalize } from "@/src/shared/lib"
+import { HeartOutlined, EyeOutlined } from "@vicons/antd"
+import type { Vacancy } from "~/src/entities/vacancy"
 
-defineProps<VacancyDescCardProps>();
+defineProps<{ data: Vacancy }>()
 </script>
 
 <template>
@@ -18,12 +18,7 @@ defineProps<VacancyDescCardProps>();
          <ui-spacing class="description" vertical gap="sm">
             <p>
                Опыт работы:
-               {{
-                  vacancyFeatures.getExperienceString(
-                     $t,
-                     data.experience
-                  )
-               }}
+               {{ vacancyFeatures.getExperienceString($t, data.experience) }}
             </p>
             <p>График: {{ data.schedule }}</p>
             <p>Рабочие часы: {{ data.hoursPerDay }}</p>

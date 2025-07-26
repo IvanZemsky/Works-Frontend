@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-   VacanciesPage,
-   VacanciesFilters,
-   VacanciesListHeader,
-   VacanciesPageList,
-   VacanciesInput,
-} from "~/src/pages/vacancies"
+import VacanciesPage from "~/src/pages/vacancies/vacancies-page.vue"
 
 definePageMeta({
    title: "Вакансии",
@@ -14,20 +8,7 @@ definePageMeta({
 </script>
 
 <template>
-   <VacanciesPage>
-      <template #search-input>
-         <VacanciesInput />
-      </template>
-      <template #list-header>
-         <VacanciesListHeader />
-      </template>
-      <template #filters>
-         <VacanciesFilters />
-      </template>
-      <template #vacancy-list>
-         <VacanciesPageList />
-      </template>
-   </VacanciesPage>
+   <VacanciesPage />
 </template>
 
 <style scoped></style>

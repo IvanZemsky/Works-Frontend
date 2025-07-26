@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-   VacancyPage,
-   VacancyContacts,
-   VacancyRelatedList,
-   VacancyQuestions,
-   VacancySkills,
-} from "~/src/pages/vacancy"
+import VacancyPage from "~/src/pages/vacancy/vacancy-page.vue"
 
 definePageMeta({
    layout: "applicant",
@@ -13,18 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-   <VacancyPage>
-      <template #contacts>
-         <VacancyContacts />
-      </template>
-      <template #questions>
-         <VacancyQuestions />
-      </template>
-      <template #skills>
-         <VacancySkills />
-      </template>
-      <template #related-vacancies>
-         <VacancyRelatedList />
-      </template>
-   </VacancyPage>
+   <VacancyPage />
 </template>

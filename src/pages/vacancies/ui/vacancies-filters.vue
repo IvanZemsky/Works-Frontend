@@ -8,9 +8,9 @@ import {
    UiCheckGroupItem,
 } from "works-ui"
 import { INCOME_FILTERS, EXPERIENCE_FILTERS, EDUCATION_FILTERS } from "../model/const"
-import { useFilters } from "../lib/composables/use-init-filters";
+import { useInitFilters } from "../model/use-init-filters";
 
-const filters = useFilters()
+const filters = useInitFilters()
 
 </script>
 

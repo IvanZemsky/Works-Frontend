@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { useInject } from "works-ui"
-import type { VacanciesProvide } from "../model/types"
+defineProps<{ totalCount: number | undefined }>()
 
-const { data } = useInject<VacanciesProvide>("vacancies")
 </script>
 
 <template>
    <ui-spacing align="center">
-      <h2 class="header">Найдено {{ data?.vacancies?.length || 0 }} вакансий</h2>
+      <p v-if="totalCount === undefined">Loading...</p>
+      <h2 class="header">Найдено {{ totalCount }} вакансий</h2>
    </ui-spacing>
 </template>
 
